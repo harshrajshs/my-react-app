@@ -1,0 +1,73 @@
+.full {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  .modifyDetails {
+    width: 400px;
+    background: #fff;
+    border: 1px solid #dddfe2;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  h1 {
+    color: #333;
+  }
+  
+  input {
+    border-radius: 8px;
+    border: 2px solid #dddfe2;
+    outline: none;
+    color: #1d2129;
+    margin: 0.5rem 0;
+    padding: 0.5rem 0.75rem;
+    width: 92%;
+    font-size: 1rem;
+  }
+  input:hover {
+    transform: scale(1.02);
+  }
+  
+  .button {
+    background: #1877f2;
+    border: 1px solid #1877f2;
+    color: #fff;
+    font-size: 1.25rem;
+    padding: 0.75rem;
+    margin: 0.5rem 0;
+    border-radius: 8px;
+    outline: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, border 0.3s ease-in-out
+  }
+  
+  .button:hover {
+    background-color: #fff;
+    color: #1877f2;
+    border: 2px solid #1877f2;
+  }
+  
+  .or {
+    margin: 10px 0;
+    color: #777;
+    font-size: 1rem;
+  }
+  body.my-app-body {
+    background: linear-gradient(to right, #4f8eff, #3288ff);
+    color: #fff;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+  }
+  .modifyDetails:before {
+    content: '\1F4BB'; 
+    font-size: 3rem;
+    color: #3288ff;
+    display: block;
+    margin-bottom: 1rem;
+  }
