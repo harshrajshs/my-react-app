@@ -58,6 +58,47 @@ def erase_data():
         db.session.rollback()
         return jsonify({"error": "Failed to erase data."}), 500
 
+@app.route('/userDetails/<string:employee_id>', methods=['DELETE'])
+def delete_user(employee_id):
+    try:
+        # Assuming employee_id is a valid employee ID
+        user = User.query.filter_by(employee_id=employee_id).first()
+
+        if user:
+            db.session.delete(user)
+            db.session.commit()
+            return jsonify({"message": "User deleted successfully"})
+        else:
+            return jsonify({"error": "User not found"}), 404
+
+    except Exception as e:
+        print(f"Error deleting user: {e}")
+        db.session.rollback()
+        return jsonify({"error": "Failed to delete user"}), 500
+    
+@app.route('/modify-user/<string:employee_id>', methods=['PUT'])
+def modify_user(employee_id):
+    try:
+        # Assuming employee_id is a valid employee ID
+        user = User.query.filter_by(employee_id=employee_id).first()
+
+        if not user:
+            return jsonify({"error": "User not found"}), 404
+        if 'employee_position' in request.json:
+            user.employee_position = request.json['employee_position']
+        if 'employee_salary' in request.json:
+            user.employee_salary = request.json['employee_salary']
+
+        db.session.commit()
+
+        return jsonify({"message": "User modified successfully"})
+
+    except Exception as e:
+        print(f"Error modifying user: {e}")
+        db.session.rollback()
+        return jsonify({"error": "Failed to modify user"}), 500    
+
+
 
 if __name__ == "__main__":
     app.run(debug=True)
